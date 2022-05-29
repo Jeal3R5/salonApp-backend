@@ -70,6 +70,18 @@ app.get("/staff", async (req, res) => {
 });
 
 //DELETE ROUTE
+app.delete("/staff/:id", async (req, res) => {
+  try {
+    //send all people
+    res.json(await Staff.findByIdAndDelete(req.params.id));
+  } catch (error) {
+    //send error
+    res.status(400).json(error);
+  }
+});
+
+
+
 
 //UPDATE ROUTE
 app.put("/staff/:id", async (req, res) => {
