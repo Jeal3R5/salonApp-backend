@@ -40,7 +40,7 @@ const StylistSchema = new mongoose.Schema({
   schedule: String,
 });
 
-const Staff = mongoose.model("Stylists", StylistSchema);
+const Stylist = mongoose.model("Stylist", StylistSchema);
 
 ///////////////////////////////////////////////////////
 //MIDDLEWARE
