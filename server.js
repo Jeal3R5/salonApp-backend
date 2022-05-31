@@ -59,7 +59,7 @@ app.get("/", (req, res) => {
 ///////////////////////////////////////
 
 //INDEX ROUTE
-app.get("/stylist", async (req, res) => {
+app.get("/stylists", async (req, res) => {
   try {
     //send all staff
     res.json(await Stylist.find({}));
@@ -70,7 +70,7 @@ app.get("/stylist", async (req, res) => {
 });
 
 //DELETE ROUTE
-app.delete("/stylist/:id", async (req, res) => {
+app.delete("/stylists/:id", async (req, res) => {
   try {
     //send all people
     res.json(await Stylist.findByIdAndDelete(req.params.id));
@@ -81,7 +81,7 @@ app.delete("/stylist/:id", async (req, res) => {
 });
 
 //UPDATE ROUTE
-app.put("/stylist/:id", async (req, res) => {
+app.put("/stylists/:id", async (req, res) => {
   try {
     //send all staff
     res.json(
@@ -94,7 +94,7 @@ app.put("/stylist/:id", async (req, res) => {
 });
 
 //CREATE ROUTE
-app.post("/stylist", async (req, res) => {
+app.post("/stylists", async (req, res) => {
   try {
     //send all staff
     res.json(await Stylist.create(req.body));
@@ -105,7 +105,7 @@ app.post("/stylist", async (req, res) => {
 });
 
 //SHOW ROUTE
-app.get("/stylist/:id", async (req, res) => {
+app.get("/stylists/:id", async (req, res) => {
   try {
     res.json(await Stylist.findById(req.params.id));
   } catch (error) {
