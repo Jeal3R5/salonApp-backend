@@ -32,7 +32,7 @@ mongoose.connection
 //MODELS
 ///////////////////////////////////////
 //This info can be moved to its own component, do that please and don't forget to require it
-const StaffSchema = new mongoose.Schema({
+const StylistSchema = new mongoose.Schema({
   name: String,
   experience: String,
   level: String,
@@ -40,7 +40,7 @@ const StaffSchema = new mongoose.Schema({
   schedule: String,
 });
 
-const Staff = mongoose.model("Staff", StaffSchema);
+const Staff = mongoose.model("Stylists", StylistSchema);
 
 ///////////////////////////////////////////////////////
 //MIDDLEWARE
@@ -59,10 +59,10 @@ app.get("/", (req, res) => {
 ///////////////////////////////////////
 
 //INDEX ROUTE
-app.get("/staff", async (req, res) => {
+app.get("/stylist", async (req, res) => {
   try {
     //send all staff
-    res.json(await Staff.find({}));
+    res.json(await Stylist.find({}));
   } catch (error) {
     //SEND ERROR
     res.status(400).json(error);
@@ -70,23 +70,22 @@ app.get("/staff", async (req, res) => {
 });
 
 //DELETE ROUTE
-app.delete("/staff/:id", async (req, res) => {
+app.delete("/stylist/:id", async (req, res) => {
   try {
     //send all people
-    res.json(await Staff.findByIdAndDelete(req.params.id));
+    res.json(await Stylist.findByIdAndDelete(req.params.id));
   } catch (error) {
     //send error
     res.status(400).json(error);
   }
 });
 
-
 //UPDATE ROUTE
-app.put("/staff/:id", async (req, res) => {
+app.put("/stylist/:id", async (req, res) => {
   try {
     //send all staff
     res.json(
-      await Staff.findByIdAndUpdate(req.params.id, req.body, { new: true })
+      await Stylist.findByIdAndUpdate(req.params.id, req.body, { new: true })
     );
   } catch (error) {
     //send error
@@ -95,10 +94,10 @@ app.put("/staff/:id", async (req, res) => {
 });
 
 //CREATE ROUTE
-app.post("/staff", async (req, res) => {
+app.post("/stylist", async (req, res) => {
   try {
     //send all staff
-    res.json(await Staff.create(req.body));
+    res.json(await Stylist.create(req.body));
   } catch (error) {
     //send error
     res.status(400).json(error);
@@ -106,9 +105,9 @@ app.post("/staff", async (req, res) => {
 });
 
 //SHOW ROUTE
-app.get("/staff/:id", async (req, res) => {
+app.get("/stylist/:id", async (req, res) => {
   try {
-    res.json(await Staff.findById(req.params.id));
+    res.json(await Stylist.findById(req.params.id));
   } catch (error) {
     res.status(400).json(error);
   }
