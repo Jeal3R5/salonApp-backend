@@ -51,7 +51,7 @@ app.use(express.json()); //parse json bodies
 
 //CREATE A TEST ROUTE
 app.get("/", (req, res) => {
-  res.send("hello world");
+  res.redirect("/stylists");
 });
 
 ///////////////////////////////////////
